@@ -1,0 +1,35 @@
+﻿@model List<MP2.Models.ArtistViewModel>
+
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<h2>Artists</h2>
+<table class="table table-dark" >
+    @*<a href="~/Content/music/07. Cookie Thumper!.mp3"> Die Artwood</a>*@
+    @*<a href="~/Content/music/We No Who U R.mp3">Nick Cave</a>*@
+    <tr>
+        <th>Name</th>
+       
+ @foreach (var item in @Model)
+ {
+    <tr>
+        <td>
+
+
+            @item.ArtistName
+                
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
+        </td>
+        
+            
+           
+
+       
+
+
+    </tr>
+ }
+</table>

@@ -1,0 +1,64 @@
+﻿@model List<MP2.Models.SongViewModel>
+
+@{
+    ViewBag.Title = "GetAllSongs";
+}
+
+<h2>Songs</h2>
+<table border="1" class="table table-hover">
+
+    <tr>
+        <th>Name</th>
+
+
+
+        @foreach (var item in @Model)
+        {
+        <tr>
+            <td>
+
+
+                @item.SongTitle
+
+                <audio controls id="a1" preload="auto" autoplay src="@item.FilePath"></audio>
+
+                @*<audio controls class="active ">
+            <source src="@item.FilePath" type="audio/mp3">
+        </audio>*@
+
+
+                @*<audio>
+            <a href="Song/GetAllSongs"/>
+        </audio>*@
+
+            </td>
+            <td>
+                @Html.ActionLink("SongDetails", "GetByID", "Song", new { id = item.SongID }, null)
+            </td>
+
+
+
+
+
+
+
+        </tr>
+    }
+    </table>
+
+    <script src="buzz.js"></script>
+    <script>
+        var sound;
+        $(function GetAllSongs() {
+            sound = new buzz.sound("GetAllSongs/Song", {
+                formats: ['ogg', 'mp3']
+            }).setVolume(100).play();
+
+            $('#pause').click(function () {
+                sound.pause();
+            });
+            $('#play').click(function () {
+                sound.play();
+            });
+        });
+    </script>
